@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EmployeesAPI.Infrastructure;
 using EmployeesAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -54,6 +55,7 @@ namespace EmployeesAPI.Controllers
                 return BadRequest();
             }
         }
+        [Authorize]
         [HttpPost]
         [Route("AddCategory")]
         public IActionResult AddCategory(Category  category)
@@ -75,6 +77,7 @@ namespace EmployeesAPI.Controllers
             }
             return BadRequest();
         }
+        [Authorize]
         [HttpPut]
         [Route("UpdateCategory")]
         public IActionResult UpdateCategory(Category category)
@@ -95,6 +98,7 @@ namespace EmployeesAPI.Controllers
             }
             return BadRequest();
         }
+        [Authorize]
         [HttpDelete]
         [Route("DeleteCategory")]
         public IActionResult DeleteCategory(int? id)

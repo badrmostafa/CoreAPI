@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmployeesAPI.Controllers
 {
@@ -59,6 +60,7 @@ namespace EmployeesAPI.Controllers
                 return BadRequest();
             }
         }
+        [Authorize]
         [HttpPost]
         [Route("AddCourse")]
         public IActionResult AddCourse(Course course)
@@ -80,6 +82,7 @@ namespace EmployeesAPI.Controllers
             }
             return BadRequest();
         }
+        [Authorize]
         [HttpPut]
         [Route("UpdateCourse")]
         public IActionResult UpdateCourse(Course course)
@@ -100,6 +103,7 @@ namespace EmployeesAPI.Controllers
             }
             return BadRequest();
         }
+        [Authorize]
         [HttpDelete]
         [Route("DeleteCourse")]
         public IActionResult DeleteCourse(int? id)
